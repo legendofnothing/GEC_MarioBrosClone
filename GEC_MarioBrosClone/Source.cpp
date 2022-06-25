@@ -15,6 +15,9 @@ $(ProjectDir)SDL
 #include <SDL_mixer.h>
 
 #include "Constants.h"
+#include "Commons.h"
+
+#include "Texture2D.h"
 
 using namespace std;
 
@@ -22,7 +25,8 @@ using namespace std;
 SDL_Window* gWindow = NULL;
 
 SDL_Renderer* gRenderer = NULL;
-SDL_Texture*  gTexture  = NULL;
+
+Texture2D* gTexture = NULL;
 
 //Function Prototype
 bool InitSDL();
@@ -30,9 +34,6 @@ bool Update();
 
 void CloseSDL();
 void Render();
-void FreeTexture();
-
-SDL_Texture* LoadTextureFromFile(string path);
 
 int main(int argc, char* args[])
 {
@@ -107,8 +108,9 @@ bool InitSDL() {
 			}
 
 			//Load Texture
-			gTexture = LoadTextureFromFile("Images/test.bmp");
-			if (gTexture == NULL) {
+			gTexture = new Texture2D(gRenderer);
+
+			if (!gTexture -> LoadFromFile("Images/test.bmp")) {
 				return false;
 			}
 		}
@@ -125,10 +127,11 @@ void CloseSDL() {
 	IMG_Quit();
 	SDL_Quit();
 
-	FreeTexture();
-
 	SDL_DestroyRenderer(gRenderer);
 	gRenderer = NULL;
+
+	delete gTexture;
+	gTexture = NULL;
 }
 
 //Render 
@@ -136,47 +139,10 @@ void Render() {
 	//Clear Screen
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 	SDL_RenderClear(gRenderer);
-
-	//Render Location
-	SDL_Rect renderLocation = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-
-	//Render To Screen
-	SDL_RenderCopyEx(gRenderer, gTexture, NULL, &renderLocation, 0, NULL, SDL_FLIP_NONE);
+	
+	//Render Texture to Screen
+	gTexture->Render(Vector2D(), SDL_FLIP_NONE);
 
 	//Update Screen
 	SDL_RenderPresent(gRenderer);
-}
-
-//Load Image from File
-SDL_Texture* LoadTextureFromFile(string path) {
-	//Free Texture
-	FreeTexture();
-
-	SDL_Texture* pTexture = NULL;
-
-	//Load Image
-	SDL_Surface* pSurface = IMG_Load(path.c_str());
-	
-	if (pSurface != NULL) {
-		pTexture = SDL_CreateTextureFromSurface(gRenderer, pSurface);
-
-		if (pTexture == NULL) {
-			cout << "Failed to create texture from surface, Error: " << SDL_GetError() << "\n";
-		}
-
-		SDL_FreeSurface(pSurface);
-	}
-
-	else cout << "Failed to create texture from surface, Error: " << IMG_GetError() << "\n";
-
-	return pTexture;
-}
-
-//Free Texture
-void FreeTexture() {
-	//Check if gTexture is NULL b4 removing
-	if (gTexture != NULL) {
-		SDL_DestroyTexture(gTexture);
-		gTexture = NULL;
-	}
 }
