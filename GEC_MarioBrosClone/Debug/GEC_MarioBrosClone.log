@@ -1,8 +1,2 @@
 ﻿  Source.cpp
-  Texture2D.cpp
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(41,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(41,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(41,56): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(41,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
   GEC_MarioBrosClone.vcxproj -> E:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe

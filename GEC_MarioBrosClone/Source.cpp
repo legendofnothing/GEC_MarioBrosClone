@@ -18,15 +18,18 @@ $(ProjectDir)SDL
 #include "Commons.h"
 
 #include "Texture2D.h"
+#include "GameScreenManager.h"
 
 using namespace std;
 
 //Globals 
 SDL_Window* gWindow = NULL;
-
 SDL_Renderer* gRenderer = NULL;
 
 Texture2D* gTexture = NULL;
+
+GameScreenManager* gameScreenManager;
+Uint32 gOldTime;
 
 //Function Prototype
 bool InitSDL();
@@ -41,6 +44,10 @@ int main(int argc, char* args[])
 	if (InitSDL()) {
 		bool quit = false;
 
+		gameScreenManager = new GameScreenManager(gRenderer, SCREEN_LVL1);
+
+		gOldTime = SDL_GetTicks();
+
 		while (!quit) {
 			Render();
 			quit = Update();
@@ -54,6 +61,9 @@ int main(int argc, char* args[])
 
 //Update Function, like Unity Update();
 bool Update() {
+	
+	Uint32 newTime = SDL_GetTicks();
+
 	//Event Handler
 	SDL_Event e;
 
@@ -66,6 +76,10 @@ bool Update() {
 		return true;
 		break;
 	}
+
+	gameScreenManager->Update((float)(newTime - gOldTime) / 1000.0f, e);
+
+	gOldTime = newTime;
 
 	return false;
 }
@@ -106,13 +120,6 @@ bool InitSDL() {
 				cout << "Failed to load SDL_Image, Error " << SDL_GetError() << "\n";
 				return false;
 			}
-
-			//Load Texture
-			gTexture = new Texture2D(gRenderer);
-
-			if (!gTexture -> LoadFromFile("Images/test.bmp")) {
-				return false;
-			}
 		}
 	}
 
@@ -132,16 +139,19 @@ void CloseSDL() {
 
 	delete gTexture;
 	gTexture = NULL;
+
+	delete gameScreenManager;
+	gameScreenManager = NULL;
 }
 
 //Render 
 void Render() {
 	//Clear Screen
-	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+	SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(gRenderer);
 	
 	//Render Texture to Screen
-	gTexture->Render(Vector2D(), SDL_FLIP_NONE);
+	gameScreenManager->Render();
 
 	//Update Screen
 	SDL_RenderPresent(gRenderer);

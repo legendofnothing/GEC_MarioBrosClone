@@ -33,39 +33,27 @@ void Texture2D::Free() {
 
 //Render Texture
 void Texture2D::Render(Vector2D newPosition, SDL_RendererFlip flip, double angle) {
-	//Clear Screen
-	SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-	SDL_RenderClear(mRenderer);
+	//Set where to render the texture
+	SDL_Rect renderLocation = { newPosition.x, newPosition.y , mWidth, mHeight };
 
-	//Render Location
-	SDL_Rect renderLocation = { newPosition.x, newPosition.y, mWidth, mHeight};
-
-	//Render To Screen
-	SDL_RenderCopyEx(mRenderer, mTexture, NULL, &renderLocation, angle, NULL, flip);
-
-	//Update Screen
-	SDL_RenderPresent(mRenderer);
+	//Render to the screen
+	SDL_RenderCopyEx(mRenderer, mTexture, NULL, &renderLocation, 0, NULL, flip);
 }
 
 //Load Image from File
 bool Texture2D::LoadFromFile(string path) {
-	//Free Texture
-	Free();
-
-	SDL_Texture* mTexture = NULL;
-
 	//Load Image
 	SDL_Surface* pSurface = IMG_Load(path.c_str());
 
 	if (pSurface != NULL) {
-		mTexture = SDL_CreateTextureFromSurface(mRenderer, pSurface);
+		//Set mWidth and mHeight to pSurface
+		mWidth = pSurface->w;
+		mHeight = pSurface->h;
 
 		//Set Transparent ColorKey
 		SDL_SetColorKey(pSurface, SDL_TRUE, SDL_MapRGB(pSurface->format, 0, 0xFF, 0xFF)); //Set Black as ColorKey
 
-		//Set mWidth and mHeight to pSurface
-		mWidth  = pSurface->w;
-		mHeight = pSurface->h;
+		mTexture = SDL_CreateTextureFromSurface(mRenderer, pSurface);
 
 		if (mTexture == NULL) {
 			cout << "Failed to create texture from surface, Error: " << SDL_GetError() << "\n";

@@ -14,3 +14,12 @@ struct Vector2D {
 		y = b;
 	}
 };
+
+enum SCREENS {
+	SCREEN_INTRO = 0,
+	SCREEN_MENU,
+	SCREEN_LVL1,
+	SCREEN_LVL2,
+	SCREEN_GAMEOVER,
+	SCREEN_HIGHSCORE
+};

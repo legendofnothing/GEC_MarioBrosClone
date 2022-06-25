@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\GameScreens">
+      <UniqueIdentifier>{1591594d-b908-4597-86f3-77c8fe558ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameScreen">
+      <UniqueIdentifier>{9b686b65-6396-44da-bd03-68fac4e7ed0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -20,6 +26,15 @@
     </ClCompile>
     <ClCompile Include="Texture2D.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenLevel1.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenManager.cpp">
+      <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +59,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Texture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Header Files\GameScreens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenLevel1.h">
+      <Filter>Header Files\GameScreens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
