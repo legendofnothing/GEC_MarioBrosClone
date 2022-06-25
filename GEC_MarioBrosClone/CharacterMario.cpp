@@ -55,7 +55,9 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 			break;
 
 		case SDLK_w:
-			Character::Jump();
+			if (mCanJump) {
+				Character::Jump();
+			}
 			break;
 
 	default:

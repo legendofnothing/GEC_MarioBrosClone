@@ -31,13 +31,12 @@ void Character::Render() {
 
 void Character::Update(float deltaTime, SDL_Event e) {
 	//Collision Variables
-	centralXPosition = (int)(mPosition.x + (mTexture->GetWidth() * 0.5f)) / TILE_WIDTH;
-	footPosition = (int)(mPosition.y + (mTexture->GetHeight())) / TILE_HEIGHT;
-	leftPosition = mPosition.x / TILE_WIDTH;
-	topPosition = mPosition.y / TILE_HEIGHT;
+	int topPosition      = (int)(mPosition.y + mTexture->GetHeight() - 32) / TILE_HEIGHT;
+	int centralXPosition = (int)(mPosition.x + (mTexture->GetWidth() * 0.5f)) / TILE_WIDTH;
+	int footPosition     = (int)(mPosition.y + mTexture->GetHeight()) / TILE_HEIGHT;
 
 
-	if (mCurrentMap->GetTileAt(footPosition, centralXPosition) == 0 || mCurrentMap->GetTileAt(footPosition, leftPosition) == 0) {
+	if (mCurrentMap->GetTileAt(footPosition, centralXPosition) == 0) {
 		AddGravity(deltaTime);
 	}
 
@@ -46,20 +45,7 @@ void Character::Update(float deltaTime, SDL_Event e) {
 	//Collision for Head
 	if (mCurrentMap->GetTileAt(topPosition, centralXPosition) == 1) {
 		mJumpForce = 0.0f;
-	}
-
-	if (mCurrentMap->GetTileAt(topPosition, leftPosition) == 1) {
-		mJumpForce = 0.0f;
-	}
-
-	//left collision
-	if (mCurrentMap->GetTileAt(footPosition - 1, leftPosition) == 1) {
-		mPosition.x = GetPosition().x;
-	}
-
-	//right collision
-	if (mCurrentMap->GetTileAt(footPosition - 1, centralXPosition) == 1) {
-		mPosition.x = GetPosition().x;
+		mCanJump = false;
 	}
 
 	//Gradually increase playerSpeed

@@ -36,7 +36,6 @@ public:
 private:
 	int footPosition;
 	int centralXPosition;
-	int leftPosition;
 	int topPosition;
 
 	LevelMap* mCurrentMap;

@@ -1,6 +1,11 @@
 ﻿  Character.cpp
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(36,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(37,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(132,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(132,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(118,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(118,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterLuigi.cpp
+  CharacterMario.cpp
+  Collision.cpp
+  GameScreenLevel1.cpp
+  GameScreenManager.cpp
+  Source.cpp
+  Generating Code...
   GEC_MarioBrosClone.vcxproj -> E:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe
