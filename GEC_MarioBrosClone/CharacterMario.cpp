@@ -22,13 +22,13 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 		switch (e.key.keysym.sym) {
 		
 		case SDLK_d:
-			mMoving = false;
+			mMovingRight = false;
 
 			mVelocity = 0.0f;
 			break;
 
 		case SDLK_a:
-			mMoving = false;
+			mMovingLeft = false;
 
 			mVelocity = 0.0f;
 			break;
@@ -42,17 +42,15 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 		switch (e.key.keysym.sym) {
 
 		case SDLK_d:
-			mMoving = true;
+			mMovingRight = true;
+			mMovingLeft = false;
 			mFacingDirection = FACING_RIGHT;
-
-			mVelocity += PLAYER_SPEED;
 
 			break;
 		case SDLK_a:
-			mMoving = true;
+			mMovingLeft = true;
+			mMovingRight = false;
 			mFacingDirection = FACING_LEFT;
-
-			mVelocity -= PLAYER_SPEED;
 
 			break;
 
@@ -61,7 +59,16 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 		}
 	}
 
-	if (mMoving && mVelocity != 0) {
+	//Gradually increase playerSpeed
+	if (mMovingLeft) {
+		mVelocity -= PLAYER_SPEED;
+	}
+
+	else if (mMovingRight) {
+		mVelocity += PLAYER_SPEED;
+	}
+	
+	if (mVelocity != 0) {
 		Move(deltaTime, mVelocity);
 	}
 
@@ -73,5 +80,7 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 	else if (mVelocity < -PLAYER_SPEED_LIMIT) {
 		mVelocity = -PLAYER_SPEED_LIMIT;
 	}
+
+	cout << mVelocity << "\n";
 }
 

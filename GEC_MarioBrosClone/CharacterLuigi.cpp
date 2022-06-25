@@ -22,13 +22,13 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e) {
 		switch (e.key.keysym.sym) {
 
 		case SDLK_RIGHT:
-			mMoving = false;
+			mMovingRight = false;
 
 			mVelocity = 0.0f;
 			break;
 
 		case SDLK_LEFT:
-			mMoving = false;
+			mMovingLeft = false;
 
 			mVelocity = 0.0f;
 			break;
@@ -42,14 +42,16 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e) {
 		switch (e.key.keysym.sym) {
 
 		case SDLK_RIGHT:
-			mMoving = true;
+			mMovingRight = true;
+			mMovingLeft = false;
 			mFacingDirection = FACING_LEFT;
 
 			mVelocity += PLAYER_SPEED;
 
 			break;
 		case SDLK_LEFT:
-			mMoving = true;
+			mMovingLeft = true;
+			mMovingRight = false;
 			mFacingDirection = FACING_RIGHT;
 
 			mVelocity -= PLAYER_SPEED;
@@ -61,7 +63,17 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e) {
 		}
 	}
 
-	if (mMoving && mVelocity != 0) {
+	//Gradually increase playerSpeed
+	if (mMovingLeft) {
+		mVelocity -= PLAYER_SPEED;
+	}
+
+	else if (mMovingRight) {
+		mVelocity += PLAYER_SPEED;
+	}
+
+
+	if (mVelocity != 0) {
 		Move(deltaTime, mVelocity);
 	}
 

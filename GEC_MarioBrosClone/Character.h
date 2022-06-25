@@ -32,6 +32,7 @@ protected:
 	Texture2D*    mTexture;
 	FACING		  mFacingDirection;
 
-	bool		  mMoving;
+	bool		  mMovingLeft;
+	bool		  mMovingRight;
 };
 
