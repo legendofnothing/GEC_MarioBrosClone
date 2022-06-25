@@ -9,12 +9,14 @@
 #include "Texture2D.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
+#include "Collision.h"
 
 using namespace std;
 
 class Texture2D;
 class CharacterMario;
 class CharacterLuigi;
+class Collision;
 
 class GameScreenLevel1 : GameScreen
 {

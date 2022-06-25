@@ -24,6 +24,9 @@ public:
 	void SetPosition(Vector2D newPosition);
 	Vector2D GetPosition();
 
+	float GetCollisionRadius();
+	Rect2D GetCollisionBox();
+
 protected:
 	virtual void Move(float deltaTime, float velocity);
 
@@ -34,5 +37,7 @@ protected:
 
 	bool		  mMovingLeft;
 	bool		  mMovingRight;
+
+	float		  mCollisionRadius;
 };
 

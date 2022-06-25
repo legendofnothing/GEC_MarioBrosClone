@@ -9,6 +9,8 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D startPos
 	mTexture->LoadFromFile(imagePath);
 
 	mFacingDirection = FACING_RIGHT;
+
+	mCollisionRadius = 15.0f;
 }
 
 Character::~Character() {
@@ -42,5 +44,13 @@ void Character::SetPosition(Vector2D newPosition) {
 Vector2D Character::GetPosition() {
 	
 	return mPosition;
+}
+
+float Character::GetCollisionRadius() {
+	return mCollisionRadius;
+}
+
+Rect2D Character::GetCollisionBox() {
+	return Rect2D(mPosition.x, mPosition.y, mTexture->GetWidth(), mTexture->GetHeight());
 }
 

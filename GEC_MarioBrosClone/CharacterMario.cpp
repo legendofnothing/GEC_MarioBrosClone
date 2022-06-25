@@ -80,7 +80,5 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 	else if (mVelocity < -PLAYER_SPEED_LIMIT) {
 		mVelocity = -PLAYER_SPEED_LIMIT;
 	}
-
-	cout << mVelocity << "\n";
 }
 
