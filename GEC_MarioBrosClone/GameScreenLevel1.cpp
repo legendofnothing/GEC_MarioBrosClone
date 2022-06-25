@@ -38,9 +38,40 @@ bool GameScreenLevel1::SetupLevel() {
 		return false;
 	}
 
-	marioCharacter = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330));
-	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330));
+	SetLevelMap();
+
+	marioCharacter = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
+	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330), mLevelMap);
 
 	return true;
+}
+
+void GameScreenLevel1::SetLevelMap() {
+	//0 blank, 1 wall
+	int map[MAP_HEIGHT][MAP_WIDTH] = {
+		{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+		{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+		{1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,0,0,1,1,1,1,1,1,1,1,0,0,0,1},
+		{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
+		{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+		{1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+		{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+	};
+
+	//Clear up any old map
+	if (mLevelMap != NULL)
+	{
+		delete mLevelMap;
+
+	}
+
+	//Set up the new one
+	mLevelMap = new LevelMap(map);
 }
 

@@ -10,6 +10,7 @@
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
 #include "Collision.h"
+#include "LevelMap.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class Texture2D;
 class CharacterMario;
 class CharacterLuigi;
 class Collision;
+class LevelMap;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -34,5 +36,9 @@ private:
 
 	CharacterMario* marioCharacter;
 	CharacterLuigi* luigiCharacter;
+
+	void SetLevelMap();
+
+	LevelMap* mLevelMap;
 };
 

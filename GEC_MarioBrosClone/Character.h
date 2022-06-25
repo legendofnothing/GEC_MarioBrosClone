@@ -7,15 +7,17 @@
 
 #include "Commons.h"
 #include "Texture2D.h"	
+#include "LevelMap.h"
 
 using namespace std;
 
 class Texture2D;
+class LevelMap;
 
 class Character
 {
 public:
-	Character(SDL_Renderer* renderer, string imagePath, Vector2D startPosition);
+	Character(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map);
 	~Character();
 
 	virtual void Render();
@@ -27,9 +29,22 @@ public:
 	float GetCollisionRadius();
 	Rect2D GetCollisionBox();
 
-protected:
-	virtual void Move(float deltaTime, float velocity);
+	void AddGravity(float deltaTime);
+	void Move(float deltaTime);
+	void Jump();
 
+private:
+	int footPosition;
+	int centralXPosition;
+	int leftPosition;
+	int topPosition;
+
+	LevelMap* mCurrentMap;
+
+	bool  mJumping;
+	float mJumpForce;
+
+protected: 
 	SDL_Renderer* mRenderer;
 	Vector2D      mPosition;
 	Texture2D*    mTexture;
@@ -37,7 +52,9 @@ protected:
 
 	bool		  mMovingLeft;
 	bool		  mMovingRight;
+	bool		  mCanJump;
 
 	float		  mCollisionRadius;
+	float		  mVelocity;
 };
 

@@ -1,6 +1,6 @@
 #include "CharacterMario.h"
 
-CharacterMario::CharacterMario(SDL_Renderer* renderer, std::string imagePath, Vector2D startPosition) : Character(renderer, imagePath, startPosition) {
+CharacterMario::CharacterMario(SDL_Renderer* renderer, std::string imagePath, Vector2D startPosition, LevelMap* map) : Character(renderer, imagePath, startPosition, map) {
 
 	mRenderer = renderer;
 	mPosition = startPosition;
@@ -54,31 +54,15 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 
 			break;
 
+		case SDLK_w:
+			Character::Jump();
+			break;
+
 	default:
 			break;
 		}
 	}
 
-	//Gradually increase playerSpeed
-	if (mMovingLeft) {
-		mVelocity -= PLAYER_SPEED;
-	}
-
-	else if (mMovingRight) {
-		mVelocity += PLAYER_SPEED;
-	}
-	
-	if (mVelocity != 0) {
-		Move(deltaTime, mVelocity);
-	}
-
-	//Cap Player Speed
-	if (mVelocity > PLAYER_SPEED_LIMIT) {
-		mVelocity = PLAYER_SPEED_LIMIT;
-	}
-
-	else if (mVelocity < -PLAYER_SPEED_LIMIT) {
-		mVelocity = -PLAYER_SPEED_LIMIT;
-	}
+	Character::Update(deltaTime, e);
 }
 
