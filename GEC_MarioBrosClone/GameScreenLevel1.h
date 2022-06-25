@@ -7,10 +7,12 @@
 #include "Commons.h"
 #include "GameScreen.h"
 #include "Texture2D.h"
+#include "CharacterMario.h"
 
 using namespace std;
 
 class Texture2D;
+class CharacterMario;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -25,5 +27,7 @@ private:
 	Texture2D* mBackgroundTexture;
 
 	bool SetupLevel();
+
+	CharacterMario* marioCharacter;
 };
 
