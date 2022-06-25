@@ -9,5 +9,8 @@ public:
 	~CharacterMario();
 
 	void Update(float deltaTime, SDL_Event e);
+
+private:
+	float mVelocity;
 };
 

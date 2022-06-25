@@ -30,12 +30,8 @@ void Character::Update(float deltaTime, SDL_Event e) {
 
 }
 
-void Character::Move(float deltaTime) {
-	mPosition.x += mVelocity * deltaTime;
-}
-
-void Character::SlowDown(float deltaTime) {
-	mPosition.x += mSlowdownVelocity * deltaTime;
+void Character::Move(float deltaTime, float velocity) {
+	mPosition.x += velocity * deltaTime;
 }
 
 void Character::SetPosition(Vector2D newPosition) {

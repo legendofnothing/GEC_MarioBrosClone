@@ -45,14 +45,14 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 			mMoving = true;
 			mFacingDirection = FACING_RIGHT;
 
-			mVelocity += 5.5f;
+			mVelocity += PLAYER_SPEED;
 
 			break;
 		case SDLK_a:
 			mMoving = true;
 			mFacingDirection = FACING_LEFT;
 
-			mVelocity -= 5.5f;
+			mVelocity -= PLAYER_SPEED;
 
 			break;
 
@@ -62,7 +62,7 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 	}
 
 	if (mMoving && mVelocity != 0) {
-		Move(deltaTime);
+		Move(deltaTime, mVelocity);
 	}
 
 	//Cap Player Speed

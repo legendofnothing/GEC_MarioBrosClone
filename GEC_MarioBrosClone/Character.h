@@ -25,8 +25,7 @@ public:
 	Vector2D GetPosition();
 
 protected:
-	virtual void Move(float deltaTime);
-	virtual void SlowDown(float deltaTime);
+	virtual void Move(float deltaTime, float velocity);
 
 	SDL_Renderer* mRenderer;
 	Vector2D      mPosition;
@@ -34,8 +33,5 @@ protected:
 	FACING		  mFacingDirection;
 
 	bool		  mMoving;
-
-	float		  mVelocity;
-	float		  mSlowdownVelocity;
 };
 

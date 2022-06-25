@@ -1,2 +1,10 @@
-﻿  CharacterMario.cpp
+﻿  Character.cpp
+  CharacterLuigi.cpp
+  CharacterMario.cpp
+  Collision.cpp
+  GameScreenLevel1.cpp
+  GameScreenManager.cpp
+  Source.cpp
+  Generating Code...
+  LINK : E:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe not found or not built by the last incremental link; performing full link
   GEC_MarioBrosClone.vcxproj -> E:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe

@@ -8,11 +8,13 @@
 #include "GameScreen.h"
 #include "Texture2D.h"
 #include "CharacterMario.h"
+#include "CharacterLuigi.h"
 
 using namespace std;
 
 class Texture2D;
 class CharacterMario;
+class CharacterLuigi;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -29,5 +31,6 @@ private:
 	bool SetupLevel();
 
 	CharacterMario* marioCharacter;
+	CharacterLuigi* luigiCharacter;
 };
 
