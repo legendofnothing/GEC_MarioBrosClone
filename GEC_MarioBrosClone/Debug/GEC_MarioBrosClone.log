@@ -1,4 +1,16 @@
-﻿  Character.cpp
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(122,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(122,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  GameScreenLevel1.cpp
+  PowBlock.cpp
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(16,45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(17,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(48,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(51,46): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(51,46): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(51,66): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(51,66): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(54,65): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(54,65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(54,85): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(54,85): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.cpp(66,81): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   GEC_MarioBrosClone.vcxproj -> E:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe

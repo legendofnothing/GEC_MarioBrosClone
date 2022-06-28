@@ -11,6 +11,7 @@
 #include "CharacterLuigi.h"
 #include "Collision.h"
 #include "LevelMap.h"
+#include "PowBlock.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ class CharacterMario;
 class CharacterLuigi;
 class Collision;
 class LevelMap;
+class PowBlock;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -40,5 +42,7 @@ private:
 	void SetLevelMap();
 
 	LevelMap* mLevelMap;
+
+	PowBlock* mPowBlock;
 };
 

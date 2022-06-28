@@ -40,6 +40,12 @@ void Texture2D::Render(Vector2D newPosition, SDL_RendererFlip flip, double angle
 	SDL_RenderCopyEx(mRenderer, mTexture, NULL, &renderLocation, 0, NULL, flip);
 }
 
+//Render Texture w/ SDL_Rect
+void Texture2D::Render(SDL_Rect srcRect, SDL_Rect destRect, SDL_RendererFlip flip, double angle) {
+
+	SDL_RenderCopyEx(mRenderer, mTexture, &srcRect, &destRect, angle, NULL, flip);
+}
+
 //Load Image from File
 bool Texture2D::LoadFromFile(string path) {
 	//Load Image

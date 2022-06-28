@@ -15,6 +15,9 @@ GameScreenLevel1::~GameScreenLevel1() {
 
 	delete luigiCharacter;
 	luigiCharacter = NULL;
+
+	delete mPowBlock; 
+	mPowBlock = NULL;
 }
 
 void GameScreenLevel1::Render() {
@@ -23,14 +26,36 @@ void GameScreenLevel1::Render() {
 
 	marioCharacter->Render();
 	luigiCharacter->Render();
+	mPowBlock->Render();
 }
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	marioCharacter->Update(deltaTime, e);
 	luigiCharacter->Update(deltaTime, e);
+
+	//Collision Check with PowBlock and Mario Character
+	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(), marioCharacter->GetCollisionBox())) {
+		if (mPowBlock != NULL) {
+			if (marioCharacter->IsJumping()) {
+				mPowBlock->TakeAHit();
+				marioCharacter->CancelJump();
+			}	
+		}
+	}
+
+	//Collision Check with PowBlock and Luigi Character
+	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
+		if (mPowBlock != NULL) {
+			if (luigiCharacter->IsJumping()) {
+				mPowBlock->TakeAHit();
+				luigiCharacter->CancelJump();
+			}
+		}
+	}
 }
 
 bool GameScreenLevel1::SetupLevel() {
+
 	mBackgroundTexture = new Texture2D(mRenderer);
 
 	if (!mBackgroundTexture->LoadFromFile("Images/BackgroundMB.png")) {
@@ -42,6 +67,8 @@ bool GameScreenLevel1::SetupLevel() {
 
 	marioCharacter = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
 	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330), mLevelMap);
+
+	mPowBlock = new PowBlock(mRenderer, mLevelMap);
 
 	return true;
 }
@@ -74,4 +101,7 @@ void GameScreenLevel1::SetLevelMap() {
 	//Set up the new one
 	mLevelMap = new LevelMap(map);
 }
+
+
+
 

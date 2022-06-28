@@ -2,7 +2,6 @@
 #ifndef _LEVELMAP_H
 #define _LEVELMAP_H
 
-//libraries
 #include "Constants.h"
 
 class LevelMap

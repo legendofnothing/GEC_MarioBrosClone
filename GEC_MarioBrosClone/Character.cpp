@@ -33,7 +33,7 @@ void Character::Update(float deltaTime, SDL_Event e) {
 	//Collision Variables
 	int topPosition      = (int)(mPosition.y + mTexture->GetHeight() - 32) / TILE_HEIGHT;
 	int centralXPosition = (int)(mPosition.x + (mTexture->GetWidth() * 0.5f)) / TILE_WIDTH;
-	int footPosition     = (int)(mPosition.y + mTexture->GetHeight()) / TILE_HEIGHT;
+	int footPosition     = (mPosition.y + mTexture->GetHeight()) / TILE_HEIGHT;
 
 
 	if (mCurrentMap->GetTileAt(footPosition, centralXPosition) == 0) {
@@ -44,7 +44,7 @@ void Character::Update(float deltaTime, SDL_Event e) {
 
 	//Collision for Head
 	if (mCurrentMap->GetTileAt(topPosition, centralXPosition) == 1) {
-		mJumpForce = 0.0f;
+		CancelJump();
 		mCanJump = false;
 	}
 
@@ -124,5 +124,13 @@ Rect2D Character::GetCollisionBox() {
 
 void Character::AddGravity(float deltaTime) {
 	mPosition.y += GRAVITY * deltaTime;
+}
+
+bool Character::IsJumping() {
+	return mJumping;
+}
+
+void Character::CancelJump() {
+	mJumpForce = 0;
 }
 

@@ -29,6 +29,9 @@ public:
 	float GetCollisionRadius();
 	Rect2D GetCollisionBox();
 
+	bool IsJumping();
+	void CancelJump();
+
 	void AddGravity(float deltaTime);
 	void MoveLeft(float deltaTime);
 	void MoveRight(float deltaTime);
