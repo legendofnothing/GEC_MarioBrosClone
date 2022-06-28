@@ -30,7 +30,8 @@ public:
 	Rect2D GetCollisionBox();
 
 	void AddGravity(float deltaTime);
-	void Move(float deltaTime);
+	void MoveLeft(float deltaTime);
+	void MoveRight(float deltaTime);
 	void Jump();
 
 private:

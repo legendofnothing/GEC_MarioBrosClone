@@ -50,15 +50,15 @@ void Character::Update(float deltaTime, SDL_Event e) {
 
 	//Gradually increase playerSpeed
 	if (mMovingLeft) {
-		mVelocity -= PLAYER_SPEED;
+		mVelocity += PLAYER_SPEED;
+
+		MoveLeft(deltaTime);
 	}
 
 	else if (mMovingRight) {
 		mVelocity += PLAYER_SPEED;
-	}
 
-	if (mVelocity != 0) {
-		Move(deltaTime);
+		MoveRight(deltaTime);
 	}
 
 	//Cap Player Speed
@@ -87,7 +87,11 @@ void Character::Update(float deltaTime, SDL_Event e) {
 	}
 }
 
-void Character::Move(float deltaTime) {
+void Character::MoveLeft(float deltaTime) {
+	mPosition.x -= mVelocity * deltaTime;
+}
+
+void Character::MoveRight(float deltaTime) {
 	mPosition.x += mVelocity * deltaTime;
 }
 

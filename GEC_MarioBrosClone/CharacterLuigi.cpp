@@ -46,15 +46,11 @@ void CharacterLuigi::Update(float deltaTime, SDL_Event e) {
 			mMovingLeft = false;
 			mFacingDirection = FACING_LEFT;
 
-			mVelocity += PLAYER_SPEED;
-
 			break;
 		case SDLK_LEFT:
 			mMovingLeft = true;
 			mMovingRight = false;
 			mFacingDirection = FACING_RIGHT;
-
-			mVelocity -= PLAYER_SPEED;
 
 			break;
 
