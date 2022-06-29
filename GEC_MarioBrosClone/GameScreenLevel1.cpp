@@ -3,6 +3,7 @@
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer) {
 	
 	SetupLevel();
+
 }
 
 GameScreenLevel1::~GameScreenLevel1() {
@@ -90,6 +91,8 @@ bool GameScreenLevel1::SetupLevel() {
 
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
+
+	AudioManager::Instance()->LoadMusic("Music/Mario.mp3");
 
 	return true;
 }

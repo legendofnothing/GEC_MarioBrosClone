@@ -38,6 +38,8 @@ bool Update();
 void CloseSDL();
 void Render();
 
+void LoadMusic(string path);
+
 int main(int argc, char* args[])
 {
 	//Debug 
@@ -121,6 +123,12 @@ bool InitSDL() {
 				return false;
 			}
 		}
+
+		//Create Mixer
+		if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+			cout << "Mixer could not initialise. Error: " << Mix_GetError();
+			return false;
+		}
 	}
 
 	return true;
@@ -156,3 +164,4 @@ void Render() {
 	//Update Screen
 	SDL_RenderPresent(gRenderer);
 }
+

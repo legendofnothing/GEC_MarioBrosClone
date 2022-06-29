@@ -12,6 +12,7 @@
 #include "Collision.h"
 #include "LevelMap.h"
 #include "PowBlock.h"
+#include "AudioManager.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ class CharacterLuigi;
 class Collision;
 class LevelMap;
 class PowBlock;
+class AudioManager;
 
 class GameScreenLevel1 : GameScreen
 {

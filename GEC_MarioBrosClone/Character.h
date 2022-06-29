@@ -8,11 +8,13 @@
 #include "Commons.h"
 #include "Texture2D.h"	
 #include "LevelMap.h"
+#include "AudioManager.h"
 
 using namespace std;
 
 class Texture2D;
 class LevelMap;
+class AudioManager;
 
 class Character
 {

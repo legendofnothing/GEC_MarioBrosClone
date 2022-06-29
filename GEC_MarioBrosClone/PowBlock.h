@@ -8,11 +8,13 @@
 #include "Commons.h"
 #include "Texture2D.h"
 #include "LevelMap.h"
+#include "AudioManager.h";
 
 using namespace std;
 using std::string;
 
 class Texture2D;
+class AudioManager;
 
 class PowBlock
 {
@@ -31,6 +33,7 @@ private:
 	Vector2D      mPosition;
 	Texture2D*    mTexture;
 	LevelMap*     mLevelMap;
+	AudioManager* mAudioManager;
 
 	float mSingleSpriteWidth;
 	float mSingleSpriteHeight;

@@ -101,6 +101,8 @@ void Character::Jump() {
 		mJumping = true;
 
 		mCanJump = false;
+
+		AudioManager::Instance()->LoadSFX("SFX/Jump.wav");
 	}
 }
 
