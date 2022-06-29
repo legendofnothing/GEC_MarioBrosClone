@@ -23,7 +23,7 @@ public:
 	~Character();
 
 	virtual void Render();
-	virtual void Update(float deltaTime, SDL_Event e);
+	virtual void Update(float deltaTime, SDL_Event e, bool isKoopa);
 
 	void SetPosition(Vector2D newPosition);
 	Vector2D GetPosition();

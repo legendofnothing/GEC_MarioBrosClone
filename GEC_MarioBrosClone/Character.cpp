@@ -29,7 +29,7 @@ void Character::Render() {
 	else mTexture->Render(mPosition, SDL_FLIP_HORIZONTAL, 0);
 }
 
-void Character::Update(float deltaTime, SDL_Event e) {
+void Character::Update(float deltaTime, SDL_Event e, bool isKoopa) {
 	//Collision Variables
 	int topPosition      = (int)(mPosition.y + mTexture->GetHeight() - 32) / TILE_HEIGHT;
 	int centralXPosition = (int)(mPosition.x + (mTexture->GetWidth() * 0.5f)) / TILE_WIDTH;
@@ -60,14 +60,27 @@ void Character::Update(float deltaTime, SDL_Event e) {
 		MoveRight(deltaTime);
 	}
 
-	//Cap Player Speed
-	if (mVelocity > PLAYER_SPEED_LIMIT) {
-		mVelocity = PLAYER_SPEED_LIMIT;
+	if (!isKoopa) {
+		//Cap Player Speed
+		if (mVelocity > PLAYER_SPEED_LIMIT) {
+			mVelocity = PLAYER_SPEED_LIMIT;
+		}
+
+		else if (mVelocity < -PLAYER_SPEED_LIMIT) {
+			mVelocity = -PLAYER_SPEED_LIMIT;
+		}
 	}
 
-	else if (mVelocity < -PLAYER_SPEED_LIMIT) {
-		mVelocity = -PLAYER_SPEED_LIMIT;
+	else {
+		if (mVelocity > 75.0f) {
+			mVelocity = 75.0f;
+		}
+
+		else if (mVelocity < -75.0f) {
+			mVelocity = -75.0f;
+		}
 	}
+
 
 	//if character is jumping
 	if (mJumping) {

@@ -65,6 +65,6 @@ void CharacterMario::Update(float deltaTime, SDL_Event e) {
 		}
 	}
 
-	Character::Update(deltaTime, e);
+	Character::Update(deltaTime, e, false);
 }
 

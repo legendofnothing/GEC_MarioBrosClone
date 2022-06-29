@@ -1,9 +1,7 @@
 #include "EnemyKoopa.h"
 
-EnemyKoopa::EnemyKoopa(SDL_Renderer* renderer,std::string imagePath,Vector2D startPosition,LevelMap* map,FACING startFacing,float movementSpeed) : Character(renderer,imagePath,startPosition,map) {
-
+EnemyKoopa::EnemyKoopa(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map, FACING startFacing) : Character(renderer, imagePath, startPosition, map) {
 	mFacingDirection = startFacing;
-	mVelocity        = movementSpeed;
 	mPosition        = startPosition;
 
 	mInjured = false;
@@ -35,24 +33,16 @@ void EnemyKoopa::Jump() {
 }
 
 void EnemyKoopa::FlipWayUp() {
-	int left = 0.0f;
 
-	if (mInjured) {
-		left = mSingleSpriteWidth;
-	}
-
-	SDL_Rect portionOfSpriteSheet = { left, 0, mSingleSpriteWidth, mSingleSpriteHeight };
-
-	SDL_Rect destRect = { (int)(mPosition.x), (int)(mPosition.y), mSingleSpriteWidth, mSingleSpriteHeight };
-
+	mInjured = false;
+	Jump();
 	if (mFacingDirection == FACING_RIGHT) {
 
-		mTexture->Render(portionOfSpriteSheet, destRect, SDL_FLIP_NONE);
+		mFacingDirection = FACING_LEFT;
 	}
-
 	else if (mFacingDirection == FACING_LEFT) {
 
-		mTexture->Render(portionOfSpriteSheet, destRect,SDL_FLIP_HORIZONTAL);
+		mFacingDirection = FACING_RIGHT;
 	}
 }
 
@@ -65,25 +55,62 @@ void EnemyKoopa::Update(float deltaTime,SDL_Event e) {
 		}
 
 		else if (mFacingDirection == FACING_RIGHT) {
-			mMovingLeft = false;
 			mMovingRight = true;
+			mMovingLeft = false;
 		}
 	}
 
 	else {
-
-		mMovingLeft = false;
-		mMovingRight = false;
-
 		mInjuredTime -= deltaTime;
 
 		if (mInjuredTime <= 0.0) {
 			FlipWayUp();
 		}
+
+		mVelocity = 0;
 	}
 
+	if (mPosition.y < 350) {
+
+		if (mMovingLeft && mPosition.x < 0) {
+
+			mFacingDirection = FACING_RIGHT;
+		}
+		else if (mMovingRight && (mPosition.x + mSingleSpriteWidth) > SCREEN_WIDTH) {
+
+			mFacingDirection = FACING_LEFT;
+		}
+	}
+
+	Character::Update(deltaTime,e,true);
 }
 
 void EnemyKoopa::Render() {
+	int left = 0.0f;
 
+	if (mInjured) {
+		left = mSingleSpriteWidth;
+	}
+
+	SDL_Rect portionOfSpriteSheet = { left, 0, mSingleSpriteWidth, mSingleSpriteHeight };
+
+	SDL_Rect destRect = { (int)(mPosition.x), (int)(mPosition.y), mSingleSpriteWidth, mSingleSpriteHeight };
+
+	if (mFacingDirection == FACING_RIGHT) {
+
+		mTexture->Render(portionOfSpriteSheet,destRect,SDL_FLIP_NONE);
+	}
+
+	else if (mFacingDirection == FACING_LEFT) {
+
+		mTexture->Render(portionOfSpriteSheet,destRect,SDL_FLIP_HORIZONTAL);
+	}
+}
+
+bool EnemyKoopa::GetInjured() {
+	return mInjured;
+}
+
+void EnemyKoopa::SetInjured(bool condition) {
+	mInjured = condition;
 }

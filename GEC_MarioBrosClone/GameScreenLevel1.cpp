@@ -19,6 +19,8 @@ GameScreenLevel1::~GameScreenLevel1() {
 
 	delete mPowBlock; 
 	mPowBlock = NULL;
+
+	mEnemies.clear();
 }
 
 void GameScreenLevel1::Render() {
@@ -27,7 +29,12 @@ void GameScreenLevel1::Render() {
 
 	marioCharacter->Render();
 	luigiCharacter->Render();
+
 	mPowBlock->Render();
+
+	for (unsigned int i = 0; i < mEnemies.size(); i++) {
+		mEnemies[i]->Render();
+	}
 }
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
@@ -37,6 +44,8 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	UpdatePowBlock();
 
 	UpdateScreenShake(deltaTime);
+
+	UpdateEnemies(deltaTime,e);
 }
 
 void GameScreenLevel1::UpdatePowBlock() {
@@ -81,6 +90,45 @@ void GameScreenLevel1::UpdateScreenShake(float deltaTime) {
 	}
 }
 
+void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
+	if (!mEnemies.empty()) {
+
+		int enemyIndexToDelete = -1;
+
+		for (unsigned int i = 0; i < mEnemies.size(); i++) {
+			
+			if (mEnemies[i]->GetPosition().y > 360.0f) {
+
+				if (mEnemies[i]->GetPosition().x < (float)(-mEnemies[i]->GetCollisionBox().width * 0.5f) || mEnemies[i]->GetPosition().x < SCREEN_WIDTH - (float)(-mEnemies[i]->GetCollisionBox().width * 0.55f)) {
+					enemyIndexToDelete = i;
+				}
+			}
+
+			mEnemies[i]->Update(deltaTime,e);
+
+			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), marioCharacter->GetCollisionBox())) {
+				if (mEnemies[i]->GetInjured()) {
+					enemyIndexToDelete = i;
+				}
+
+				else cout << "Die 4 now";
+			}
+
+			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
+				if (mEnemies[i]->GetInjured()) {
+					enemyIndexToDelete = i;
+				}
+
+				else cout << "Die 4 now";
+			}
+		}
+
+		if (enemyIndexToDelete != -1) {
+			mEnemies.erase(mEnemies.begin() + enemyIndexToDelete);
+		}
+	}
+}
+
 bool GameScreenLevel1::SetupLevel() {
 
 	mBackgroundTexture = new Texture2D(mRenderer);
@@ -96,6 +144,9 @@ bool GameScreenLevel1::SetupLevel() {
 	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330), mLevelMap);
 
 	mPowBlock = new PowBlock(mRenderer, mLevelMap);
+
+	CreateKoopa(Vector2D(150,32), FACING_RIGHT);
+	CreateKoopa(Vector2D(325,32), FACING_LEFT);
 
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
@@ -138,7 +189,19 @@ void GameScreenLevel1::DoScreenShake() {
 	mScreenShake = true;
 	mScreenShakeTime = 0.4f;
 	mWobble = 0.0f;
+
+	for (unsigned int i = 0; i < mEnemies.size(); i++) {
+		mEnemies[i]->TakeDamage();
+	}
 }
+
+void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction) {
+
+	mKoopa = new EnemyKoopa(mRenderer,"Images/Koopa.png",position,mLevelMap,direction);
+
+	mEnemies.push_back(mKoopa);
+}
+
 
 
 

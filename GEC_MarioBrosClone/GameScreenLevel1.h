@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
 #include <SDL.h>
 
@@ -13,6 +14,7 @@
 #include "LevelMap.h"
 #include "PowBlock.h"
 #include "AudioManager.h"
+#include "EnemyKoopa.h"
 
 using namespace std;
 
@@ -23,6 +25,7 @@ class Collision;
 class LevelMap;
 class PowBlock;
 class AudioManager;
+class EnemyKoopa;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -37,6 +40,9 @@ public:
 
 	void UpdatePowBlock();
 	void UpdateScreenShake(float deltaTime);
+	void UpdateEnemies(float deltaTime,SDL_Event e);
+
+	void CreateKoopa(Vector2D position,FACING direction);
 
 private:
 	Texture2D* mBackgroundTexture;
@@ -52,9 +58,13 @@ private:
 
 	PowBlock* mPowBlock;
 
+	EnemyKoopa* mKoopa;
+
 	bool  mScreenShake;
 	float mScreenShakeTime;
 	float mWobble;
 	float mBackgroundYPos;
+
+	vector<EnemyKoopa*> mEnemies;
 };
 
