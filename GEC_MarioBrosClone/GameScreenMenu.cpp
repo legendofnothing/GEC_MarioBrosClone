@@ -35,6 +35,7 @@ void GameScreenMenu::Update(float deltaTime, SDL_Event e) {
 		case SDL_KEYDOWN:
 			switch (e.key.keysym.sym) {
 				case SDLK_1:
+					mScreenToChange = SCREEN_LVL1;
 					break;
 				case SDLK_2:
 					break;

@@ -4,6 +4,7 @@
 
 #include "Commons.h"
 
+#include "GameScreenMenu.h"
 #include "GameScreenLevel1.h"
 
 using namespace std;
