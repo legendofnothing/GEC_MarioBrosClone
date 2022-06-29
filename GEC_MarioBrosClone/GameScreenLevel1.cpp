@@ -109,6 +109,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), marioCharacter->GetCollisionBox())) {
 				if (mEnemies[i]->GetInjured()) {
 					enemyIndexToDelete = i;
+
+					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
 				}
 
 				else cout << "Die 4 now";
@@ -117,6 +119,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
 				if (mEnemies[i]->GetInjured()) {
 					enemyIndexToDelete = i;
+
+					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
 				}
 
 				else cout << "Die 4 now";

@@ -11,4 +11,7 @@ D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(97,64): warning C4
 D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(97,64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(97,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
 D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(97,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  GameScreenLevel1.cpp
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
   GEC_MarioBrosClone.vcxproj -> D:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe
