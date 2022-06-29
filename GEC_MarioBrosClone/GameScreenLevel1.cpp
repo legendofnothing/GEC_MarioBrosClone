@@ -22,7 +22,7 @@ GameScreenLevel1::~GameScreenLevel1() {
 
 void GameScreenLevel1::Render() {
 	//Draw Background
-	mBackgroundTexture->Render(Vector2D(), SDL_FLIP_NONE);
+	mBackgroundTexture->Render(Vector2D(0, mBackgroundYPos), SDL_FLIP_NONE);
 
 	marioCharacter->Render();
 	luigiCharacter->Render();
@@ -39,6 +39,8 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 			if (marioCharacter->IsJumping()) {
 				mPowBlock->TakeAHit();
 				marioCharacter->CancelJump();
+
+				DoScreenShake();
 			}	
 		}
 	}
@@ -49,7 +51,23 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 			if (luigiCharacter->IsJumping()) {
 				mPowBlock->TakeAHit();
 				luigiCharacter->CancelJump();
+
+				DoScreenShake();
 			}
+		}
+	}
+
+	//Do Screen Shake if true
+	if (mScreenShake) {
+		mScreenShakeTime -= deltaTime;
+		mWobble++;
+
+		mBackgroundYPos = sin(mWobble);
+		mBackgroundYPos *= 3.0f;
+
+		if (mScreenShakeTime <= 0) {
+			mScreenShake = false;
+			mBackgroundYPos = 0.0f;
 		}
 	}
 }
@@ -69,6 +87,9 @@ bool GameScreenLevel1::SetupLevel() {
 	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330), mLevelMap);
 
 	mPowBlock = new PowBlock(mRenderer, mLevelMap);
+
+	mScreenShake = false;
+	mBackgroundYPos = 0.0f;
 
 	return true;
 }
@@ -102,6 +123,11 @@ void GameScreenLevel1::SetLevelMap() {
 	mLevelMap = new LevelMap(map);
 }
 
+void GameScreenLevel1::DoScreenShake() {
+	mScreenShake = true;
+	mScreenShakeTime = 0.4f;
+	mWobble = 0.0f;
+}
 
 
 

@@ -31,6 +31,8 @@ public:
 	virtual void Render();
 	virtual void Update(float deltaTime, SDL_Event e);
 
+	void DoScreenShake();
+
 private:
 	Texture2D* mBackgroundTexture;
 
@@ -44,5 +46,10 @@ private:
 	LevelMap* mLevelMap;
 
 	PowBlock* mPowBlock;
+
+	bool  mScreenShake;
+	float mScreenShakeTime;
+	float mWobble;
+	float mBackgroundYPos;
 };
 

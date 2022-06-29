@@ -24,6 +24,8 @@ public:
 	void   TakeAHit();
 	bool   IsAvailable() { return mNumberOfHitsLeft > 0; };
 
+	void   DoScreenShake();
+
 private:
 	SDL_Renderer* mRenderer;
 	Vector2D      mPosition;
