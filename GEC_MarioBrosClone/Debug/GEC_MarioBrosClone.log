@@ -1,8 +1,14 @@
 ﻿  Character.cpp
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(34,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(35,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(36,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(37,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(151,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(151,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(27,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,45): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,65): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,64): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(48,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(155,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(155,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   GEC_MarioBrosClone.vcxproj -> D:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe
