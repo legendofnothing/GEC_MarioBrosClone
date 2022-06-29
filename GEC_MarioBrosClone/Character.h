@@ -46,9 +46,6 @@ private:
 
 	LevelMap* mCurrentMap;
 
-	bool  mJumping;
-	float mJumpForce;
-
 protected: 
 	SDL_Renderer* mRenderer;
 	Vector2D      mPosition;
@@ -61,5 +58,8 @@ protected:
 
 	float		  mCollisionRadius;
 	float		  mVelocity;
+
+	bool          mJumping;
+	float         mJumpForce;
 };
 
