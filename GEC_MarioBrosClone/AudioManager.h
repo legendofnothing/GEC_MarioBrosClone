@@ -16,8 +16,6 @@ public:
 	void LoadMusic(string path);
 	void LoadSFX(string path);
 
-	void StopMusic();
-
 	static AudioManager* Instance();
 private:
 

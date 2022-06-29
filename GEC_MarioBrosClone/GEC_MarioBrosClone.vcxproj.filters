@@ -66,12 +66,6 @@
     <ClCompile Include="EnemyKoopa.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameScreenMenu.cpp">
-      <Filter>Source Files\GameScreen</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL\SDL2.lib">
@@ -129,12 +123,6 @@
     </ClInclude>
     <ClInclude Include="EnemyKoopa.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameScreenMenu.h">
-      <Filter>Header Files\GameScreens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

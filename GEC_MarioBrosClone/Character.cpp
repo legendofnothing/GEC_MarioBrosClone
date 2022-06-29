@@ -72,12 +72,12 @@ void Character::Update(float deltaTime, SDL_Event e, bool isKoopa) {
 	}
 
 	else {
-		if (mVelocity > 65.0f) {
-			mVelocity = 65.0f;
+		if (mVelocity > 75.0f) {
+			mVelocity = 75.0f;
 		}
 
-		else if (mVelocity < -65.0f) {
-			mVelocity = -65.0f;
+		else if (mVelocity < -75.0f) {
+			mVelocity = -75.0f;
 		}
 	}
 

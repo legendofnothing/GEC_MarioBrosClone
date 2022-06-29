@@ -41,11 +41,5 @@ void AudioManager::LoadSFX(string path) {
 	Mix_PlayChannel(-1, mSFX, 0);
 }
 
-void AudioManager::StopMusic() {
-	Mix_HaltMusic();
-}
-
-
-
 
 

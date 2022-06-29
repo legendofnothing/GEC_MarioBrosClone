@@ -24,11 +24,6 @@ void GameScreenManager::Render() {
 void GameScreenManager::Update(float deltaTime, SDL_Event e) {
 
 	mCurrentScreen->Update(deltaTime, e);
-
-	if (mCurrentScreen->GetScreenToChange() != NULL) {
-		ChangeScreen(mCurrentScreen->GetScreenToChange());
-	}
-
 }
 
 void GameScreenManager::ChangeScreen(SCREENS screen) {
@@ -38,16 +33,12 @@ void GameScreenManager::ChangeScreen(SCREENS screen) {
 	}
 
 	GameScreenLevel1* level1;
-	GameScreenMenu* menu;
 
 	switch (screen)
 	{
 	case SCREEN_INTRO:
 		break;
 	case SCREEN_MENU:
-		menu = new GameScreenMenu(mRenderer);
-		mCurrentScreen = (GameScreen*)menu;
-		menu = NULL;
 		break;
 	case SCREEN_LVL1:
 

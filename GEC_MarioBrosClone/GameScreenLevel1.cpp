@@ -46,11 +46,6 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	UpdateScreenShake(deltaTime);
 
 	UpdateEnemies(deltaTime,e);
-
-	if (mEnemies.empty()) {
-		CreateKoopa(Vector2D(150,32),FACING_RIGHT);
-		CreateKoopa(Vector2D(325,32),FACING_LEFT);
-	}
 }
 
 void GameScreenLevel1::UpdatePowBlock() {
@@ -154,13 +149,16 @@ bool GameScreenLevel1::SetupLevel() {
 
 	mPowBlock = new PowBlock(mRenderer, mLevelMap);
 
+	CreateKoopa(Vector2D(150,32), FACING_RIGHT);
+	CreateKoopa(Vector2D(325,32), FACING_LEFT);
+
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
 
 	AudioManager::Instance()->LoadMusic("Music/Mario.mp3");
 
 	return true;
-} 
+}
 
 void GameScreenLevel1::SetLevelMap() {
 	//0 blank, 1 wall
