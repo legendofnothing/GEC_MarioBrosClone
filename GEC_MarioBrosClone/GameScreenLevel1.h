@@ -35,6 +35,9 @@ public:
 
 	void DoScreenShake();
 
+	void UpdatePowBlock();
+	void UpdateScreenShake(float deltaTime);
+
 private:
 	Texture2D* mBackgroundTexture;
 

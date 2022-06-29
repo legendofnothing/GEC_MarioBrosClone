@@ -34,20 +34,26 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	marioCharacter->Update(deltaTime, e);
 	luigiCharacter->Update(deltaTime, e);
 
+	UpdatePowBlock();
+
+	UpdateScreenShake(deltaTime);
+}
+
+void GameScreenLevel1::UpdatePowBlock() {
 	//Collision Check with PowBlock and Mario Character
-	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(), marioCharacter->GetCollisionBox())) {
+	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(),marioCharacter->GetCollisionBox())) {
 		if (mPowBlock != NULL) {
 			if (marioCharacter->IsJumping()) {
 				mPowBlock->TakeAHit();
 				marioCharacter->CancelJump();
 
 				DoScreenShake();
-			}	
+			}
 		}
 	}
 
 	//Collision Check with PowBlock and Luigi Character
-	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
+	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(),luigiCharacter->GetCollisionBox())) {
 		if (mPowBlock != NULL) {
 			if (luigiCharacter->IsJumping()) {
 				mPowBlock->TakeAHit();
@@ -57,7 +63,9 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 			}
 		}
 	}
+}
 
+void GameScreenLevel1::UpdateScreenShake(float deltaTime) {
 	//Do Screen Shake if true
 	if (mScreenShake) {
 		mScreenShakeTime -= deltaTime;

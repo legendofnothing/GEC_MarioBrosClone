@@ -83,3 +83,7 @@ void EnemyKoopa::Update(float deltaTime,SDL_Event e) {
 	}
 
 }
+
+void EnemyKoopa::Render() {
+
+}

@@ -1,14 +1,14 @@
-﻿  Character.cpp
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(27,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,45): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,65): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(29,65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,64): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(31,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(48,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(155,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(155,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  EnemyKoopa.cpp
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(11,45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(12,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(38,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(41,10): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(44,45): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(44,45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(44,65): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(44,65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(46,64): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(46,64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(46,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
+D:\repos\GEC_MarioBrosClone\GEC_MarioBrosClone\EnemyKoopa.cpp(46,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   GEC_MarioBrosClone.vcxproj -> D:\repos\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe
