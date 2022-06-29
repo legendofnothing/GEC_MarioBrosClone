@@ -37,3 +37,4 @@ dir_to_ignore/Debug
 *.db-shm
 *.db-wal
 *.opendb
+*.ipch
