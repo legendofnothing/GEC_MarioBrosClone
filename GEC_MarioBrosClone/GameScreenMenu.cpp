@@ -35,11 +35,8 @@ void GameScreenMenu::Update(float deltaTime, SDL_Event e) {
 		case SDL_KEYDOWN:
 			switch (e.key.keysym.sym) {
 				case SDLK_1:
-					SetNextGameState(GAME_LVL1);
-					cout << "hit";
 					break;
 				case SDLK_2:
-					SetNextGameState(GAME_LVL2);
 					break;
 				default:
 					break;
@@ -48,9 +45,6 @@ void GameScreenMenu::Update(float deltaTime, SDL_Event e) {
 }
 
 bool GameScreenMenu::SetupLevel() {
-	SetGameState(MENU_STATE);
-	SetNextGameState(GAME_LVL1);
-
 	titleText = new TextRenderer(16);
 	copyrightText = new TextRenderer(6);
 
