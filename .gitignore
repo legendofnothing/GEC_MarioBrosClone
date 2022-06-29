@@ -31,6 +31,8 @@
 .vs/GEC_MarioBrosClone/v17
 .vs/GEC_MarioBrosClone/FileContentIndex
 dir_to_ignore/GEC_MarioBrosClone/GEC_MarioBrosClone/Debug
+dir_to_ignore/GEC_MarioBrosClone/Debug
+dir_to_ignore/Debug
 *.db
 *.db-shm
 *.db-wal
