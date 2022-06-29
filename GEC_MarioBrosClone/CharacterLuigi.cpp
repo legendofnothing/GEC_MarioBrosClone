@@ -8,7 +8,7 @@ CharacterLuigi::CharacterLuigi(SDL_Renderer* renderer, std::string imagePath, Ve
 	mTexture = new Texture2D(renderer);
 	mTexture->LoadFromFile(imagePath);
 
-	mFacingDirection = FACING_LEFT;
+	mFacingDirection = FACING_RIGHT;
 }
 
 CharacterLuigi::~CharacterLuigi() {

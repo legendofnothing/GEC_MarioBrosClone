@@ -35,7 +35,6 @@ void Character::Update(float deltaTime, SDL_Event e) {
 	int centralXPosition = (int)(mPosition.x + (mTexture->GetWidth() * 0.5f)) / TILE_WIDTH;
 	int footPosition     = (mPosition.y + mTexture->GetHeight()) / TILE_HEIGHT;
 
-
 	if (mCurrentMap->GetTileAt(footPosition, centralXPosition) == 0) {
 		AddGravity(deltaTime);
 	}
