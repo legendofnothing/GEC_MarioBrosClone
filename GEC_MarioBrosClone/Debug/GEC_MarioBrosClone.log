@@ -1,28 +1,4 @@
-﻿  Character.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(38,23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(146,83): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Character.cpp(146,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Coin.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(6,44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(7,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(16,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(18,45): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(18,45): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(18,65): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(18,65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(20,64): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(20,64): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(20,84): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Coin.cpp(20,84): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Collision.cpp
-  GameScreenLevel1.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  GameScreenLevel2.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\GameScreenLevel2.cpp(73,21): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Compiling...
-  GameScreenManager.cpp
+﻿  GameScreenManager.cpp
 E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   GameScreenMenu.cpp
 E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
@@ -30,14 +6,9 @@ E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexp
 E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   GameScreenWin.cpp
 E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Source.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
   Compiling...
-  Texture2D.cpp
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(37,41): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(37,41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(37,56): warning C4838: conversion from 'float' to 'int' requires a narrowing conversion
-E:\GEC_MarioBrosClone\GEC_MarioBrosClone\Texture2D.cpp(37,56): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Source.cpp
+E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Generating Code...
   GEC_MarioBrosClone.vcxproj -> E:\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe
