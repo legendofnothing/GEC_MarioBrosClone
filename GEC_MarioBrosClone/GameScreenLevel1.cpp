@@ -14,9 +14,6 @@ GameScreenLevel1::~GameScreenLevel1() {
 	delete marioCharacter;
 	marioCharacter = NULL;
 
-	delete luigiCharacter;
-	luigiCharacter = NULL;
-
 	delete mPowBlock; 
 	mPowBlock = NULL;
 
@@ -28,7 +25,6 @@ void GameScreenLevel1::Render() {
 	mBackgroundTexture->Render(Vector2D(0, mBackgroundYPos), SDL_FLIP_NONE);
 
 	marioCharacter->Render();
-	luigiCharacter->Render();
 
 	mPowBlock->Render();
 
@@ -37,12 +33,13 @@ void GameScreenLevel1::Render() {
 	}
 
 	scoreDisplay->Render(mRenderer,"Level 1",240,20);
-	scoreDisplay->Render(mRenderer,ScoreSystem::Instance()->GetScore() ,250,35);
+
+	scoreDisplay->Render(mRenderer,"Score",240,40);
+	scoreDisplay->Render(mRenderer,ScoreSystem::Instance()->GetScore() ,275,40);
 }
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	marioCharacter->Update(deltaTime, e);
-	luigiCharacter->Update(deltaTime, e);
 
 	UpdatePowBlock();
 
@@ -55,6 +52,10 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 		CreateKoopa(Vector2D(150,32),FACING_RIGHT);
 		CreateKoopa(Vector2D(325,32),FACING_LEFT);
 	}
+
+	if (marioCharacter->HasWon()) {
+		SetNextGameState(GAME_2);
+	}
 }
 
 void GameScreenLevel1::UpdatePowBlock() {
@@ -64,20 +65,6 @@ void GameScreenLevel1::UpdatePowBlock() {
 			if (marioCharacter->IsJumping()) {
 				mPowBlock->TakeAHit();
 				marioCharacter->CancelJump();
-
-				DoScreenShake();
-
-				ScoreSystem::Instance()->AddScore(5);
-			}
-		}
-	}
-
-	//Collision Check with PowBlock and Luigi Character
-	if (Collision::Instance()->Box(mPowBlock->GetCollisionBox(),luigiCharacter->GetCollisionBox())) {
-		if (mPowBlock != NULL) {
-			if (luigiCharacter->IsJumping()) {
-				mPowBlock->TakeAHit();
-				luigiCharacter->CancelJump();
 
 				DoScreenShake();
 
@@ -136,23 +123,6 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 
 				else SetNextGameState(LOSE_STATE);
 			}
-
-			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
-				if (mEnemies[i]->GetInjured()) {
-					enemyIndexToDelete = i;
-
-					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
-
-					ScoreSystem::Instance()->AddScore(15);
-				}
-
-				else if (luigiCharacter->IsJumping()) {
-					mEnemies[i]->TakeDamage();
-				}
-
-
-				else SetNextGameState(LOSE_STATE);
-			}
 		}
 
 		if (enemyIndexToDelete != -1) {
@@ -178,12 +148,13 @@ bool GameScreenLevel1::SetupLevel() {
 	mPowBlock = new PowBlock(mRenderer, mLevelMap);
 
 	marioCharacter = new CharacterMario(mRenderer,"Images/Mario.png",Vector2D(64,330),mLevelMap);
-	luigiCharacter = new CharacterLuigi(mRenderer,"Images/Luigi.png",Vector2D(128,330),mLevelMap);
 
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
 
 	scoreDisplay = new TextRenderer(12);
+
+	ScoreSystem::Instance()->ResetScore();
 
 	AudioManager::Instance()->LoadMusic("Music/Mario.ogg");
 
@@ -193,9 +164,9 @@ bool GameScreenLevel1::SetupLevel() {
 void GameScreenLevel1::SetLevelMap() {
 	//0 blank, 1 wall, 2 win condition
 	int map[MAP_HEIGHT][MAP_WIDTH] = {
-		{0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-		{0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
-		{0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0},

@@ -100,6 +100,10 @@ bool Update() {
 				gameScreenManager->ChangeScreen(SCREEN_LVL1);
 				break;
 
+			case GAME_2:
+				gameScreenManager->ChangeScreen(SCREEN_LVL2);
+				break;
+
 			case LOSE_STATE:
 				gameScreenManager->ChangeScreen(SCREEN_GAMEOVER);
 				break;

@@ -1,2 +1,4 @@
-﻿  ScoreSystem.cpp
+﻿  GameScreenLevel2.cpp
+E:\GEC_MarioBrosClone\GEC_MarioBrosClone\PowBlock.h(11,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+E:\GEC_MarioBrosClone\GEC_MarioBrosClone\GameScreenLevel2.cpp(73,21): warning C4018: '<': signed/unsigned mismatch
   GEC_MarioBrosClone.vcxproj -> E:\GEC_MarioBrosClone\Debug\GEC_MarioBrosClone.exe

@@ -33,6 +33,7 @@ void GameScreenManager::ChangeScreen(SCREENS screen) {
 	}
 
 	GameScreenLevel1* level1;
+	GameScreenLevel2* level2;
 	GameScreenMenu* menu;
 	GameScreenOver* gameover;
 
@@ -53,6 +54,10 @@ void GameScreenManager::ChangeScreen(SCREENS screen) {
 		break;
 
 	case SCREEN_LVL2:
+
+		level2         = new GameScreenLevel2(mRenderer);
+		mCurrentScreen = (GameScreen*)level2;
+		level2         = NULL;
 		break;
 
 	case SCREEN_GAMEOVER:

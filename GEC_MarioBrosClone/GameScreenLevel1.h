@@ -53,7 +53,6 @@ private:
 	bool SetupLevel();
 
 	CharacterMario* marioCharacter;
-	CharacterLuigi* luigiCharacter;
 
 	void SetLevelMap();
 

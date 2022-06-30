@@ -34,6 +34,8 @@ public:
 	bool IsJumping();
 	void CancelJump();
 
+	bool HasWon();
+
 	void AddGravity(float deltaTime);
 	void MoveLeft(float deltaTime);
 	void MoveRight(float deltaTime);
@@ -55,11 +57,14 @@ protected:
 	bool		  mMovingLeft;
 	bool		  mMovingRight;
 	bool		  mCanJump;
+	bool          mIsAirbone;
 
 	float		  mCollisionRadius;
 	float		  mVelocity;
 
 	bool          mJumping;
 	float         mJumpForce;
+
+	bool          mHasWon;
 };
 

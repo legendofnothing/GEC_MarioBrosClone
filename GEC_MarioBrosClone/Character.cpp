@@ -13,6 +13,8 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D startPos
 	mCollisionRadius = 15.0f;
 
 	mCurrentMap = map;
+
+	mHasWon = false;
 }
 
 Character::~Character() {
@@ -37,14 +39,22 @@ void Character::Update(float deltaTime, SDL_Event e, bool isKoopa) {
 
 	if (mCurrentMap->GetTileAt(footPosition, centralXPosition) == 0) {
 		AddGravity(deltaTime);
+		mIsAirbone = true;
 	}
 
-	else mCanJump = true;
+	else {
+		mCanJump = true;
+		mIsAirbone = false;
+	}
 
 	//Collision for Head
 	if (mCurrentMap->GetTileAt(topPosition, centralXPosition) == 1) {
 		CancelJump();
 		mCanJump = false;
+	}
+
+	if ((mPosition.x <= 10 && mPosition.y <= 23 ) || (mPosition.x >= 420 && mPosition.y <= 23)) {
+		mHasWon = true;
 	}
 
 	//Gradually increase playerSpeed
@@ -141,10 +151,13 @@ void Character::AddGravity(float deltaTime) {
 }
 
 bool Character::IsJumping() {
-	return mJumping;
+	return mIsAirbone;
 }
 
 void Character::CancelJump() {
 	mJumpForce = 0;
 }
 
+bool Character::HasWon() {
+	return mHasWon;
+}
