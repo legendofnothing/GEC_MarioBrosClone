@@ -46,6 +46,12 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
 	UpdateScreenShake(deltaTime);
 
 	UpdateEnemies(deltaTime,e);
+
+	if (mEnemies.empty()) {
+
+		CreateKoopa(Vector2D(150,32),FACING_RIGHT);
+		CreateKoopa(Vector2D(325,32),FACING_LEFT);
+	}
 }
 
 void GameScreenLevel1::UpdatePowBlock() {
@@ -113,6 +119,10 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
 				}
 
+				else if (marioCharacter->IsJumping()) {
+					mEnemies[i]->TakeDamage();
+				}
+
 				else cout << "Die 4 now";
 			}
 
@@ -122,6 +132,11 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 
 					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
 				}
+
+				else if (luigiCharacter->IsJumping()) {
+					mEnemies[i]->TakeDamage();
+				}
+
 
 				else cout << "Die 4 now";
 			}
@@ -144,13 +159,10 @@ bool GameScreenLevel1::SetupLevel() {
 
 	SetLevelMap();
 
-	marioCharacter = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
-	luigiCharacter = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(128, 330), mLevelMap);
-
 	mPowBlock = new PowBlock(mRenderer, mLevelMap);
 
-	CreateKoopa(Vector2D(150,32), FACING_RIGHT);
-	CreateKoopa(Vector2D(325,32), FACING_LEFT);
+	marioCharacter = new CharacterMario(mRenderer,"Images/Mario.png",Vector2D(64,330),mLevelMap);
+	luigiCharacter = new CharacterLuigi(mRenderer,"Images/Luigi.png",Vector2D(128,330),mLevelMap);
 
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
