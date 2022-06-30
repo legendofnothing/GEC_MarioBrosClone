@@ -32,6 +32,9 @@ Texture2D* gTexture = NULL;
 GameScreenManager* gameScreenManager;
 Uint32 gOldTime;
 
+GAMESTATE gCurrentGameState;
+GAMESTATE gNextGameState;
+
 //Function Prototype
 bool InitSDL();
 bool Update();
@@ -83,6 +86,29 @@ bool Update() {
 	gameScreenManager->Update((float)(newTime - gOldTime) / 1000.0f, e);
 
 	gOldTime = newTime;
+
+	gCurrentGameState = gameScreenManager->GetCurrentGameState();
+	gNextGameState    = gameScreenManager->GetNextGameState();
+
+	if (gCurrentGameState != gNextGameState) {
+		switch (gNextGameState) {
+			case MENU_STATE:
+				gameScreenManager->ChangeScreen(SCREEN_MENU);
+				break;
+
+			case GAME_1:
+				gameScreenManager->ChangeScreen(SCREEN_LVL1);
+				break;
+
+			case LOSE_STATE:
+				gameScreenManager->ChangeScreen(SCREEN_GAMEOVER);
+				break;
+
+			case EXIT_STATE:
+				return true;
+				break;
+		}
+	}
 
 	return false;
 }

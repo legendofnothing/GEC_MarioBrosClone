@@ -20,7 +20,23 @@ void GameScreenMenu::Render() {
 }
 
 void GameScreenMenu::Update(float deltaTime,SDL_Event e) {
+	switch (e.type) {
+		case SDL_KEYUP:
+			switch (e.key.keysym.sym) 
+			{
+				case SDLK_ESCAPE:
+					SetNextGameState(EXIT_STATE);
+					break;
 
+				case SDLK_1:
+					SetNextGameState(GAME_1);
+					break;
+
+				case SDLK_2:
+					SetNextGameState(GAME_2);
+					break;
+			}
+	}
 }
 
 bool GameScreenMenu::SetupLevel() {
@@ -30,5 +46,8 @@ bool GameScreenMenu::SetupLevel() {
 	option2 = new TextRenderer(15);
 
 	copyright = new TextRenderer(8);
+	
+	SetGameState(MENU_STATE);
+	SetNextGameState(MENU_STATE);
 	return true;
 }

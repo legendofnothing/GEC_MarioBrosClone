@@ -125,7 +125,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 					mEnemies[i]->TakeDamage();
 				}
 
-				else cout << "Die 4 now";
+				else SetNextGameState(LOSE_STATE);
 			}
 
 			if (Collision::Instance()->Box(mEnemies[i]->GetCollisionBox(), luigiCharacter->GetCollisionBox())) {
@@ -140,7 +140,7 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 				}
 
 
-				else cout << "Die 4 now";
+				else SetNextGameState(LOSE_STATE);
 			}
 		}
 
@@ -151,6 +151,9 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 }
 
 bool GameScreenLevel1::SetupLevel() {
+
+	SetGameState(GAME_1);
+	SetNextGameState(GAME_1);
 
 	mBackgroundTexture = new Texture2D(mRenderer);
 
@@ -175,7 +178,7 @@ bool GameScreenLevel1::SetupLevel() {
 }
 
 void GameScreenLevel1::SetLevelMap() {
-	//0 blank, 1 wall
+	//0 blank, 1 wall, 2 win condition
 	int map[MAP_HEIGHT][MAP_WIDTH] = {
 		{0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
 		{0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0},
