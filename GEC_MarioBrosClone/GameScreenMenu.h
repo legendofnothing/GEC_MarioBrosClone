@@ -26,6 +26,9 @@ private:
 	bool SetupLevel();
 
 	TextRenderer* titleText;
+	TextRenderer* option1;
+	TextRenderer* option2;
+	TextRenderer* copyright;
 };
 
 
