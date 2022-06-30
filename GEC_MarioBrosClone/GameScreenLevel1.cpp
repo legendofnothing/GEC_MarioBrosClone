@@ -35,6 +35,9 @@ void GameScreenLevel1::Render() {
 	for (unsigned int i = 0; i < mEnemies.size(); i++) {
 		mEnemies[i]->Render();
 	}
+
+	scoreDisplay->Render(mRenderer,"Level 1",240,20);
+	scoreDisplay->Render(mRenderer,ScoreSystem::Instance()->GetScore() ,250,35);
 }
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e) {
@@ -63,6 +66,8 @@ void GameScreenLevel1::UpdatePowBlock() {
 				marioCharacter->CancelJump();
 
 				DoScreenShake();
+
+				ScoreSystem::Instance()->AddScore(5);
 			}
 		}
 	}
@@ -75,6 +80,8 @@ void GameScreenLevel1::UpdatePowBlock() {
 				luigiCharacter->CancelJump();
 
 				DoScreenShake();
+
+				ScoreSystem::Instance()->AddScore(5);
 			}
 		}
 	}
@@ -119,6 +126,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 					enemyIndexToDelete = i;
 
 					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
+
+					ScoreSystem::Instance()->AddScore(15);
 				}
 
 				else if (marioCharacter->IsJumping()) {
@@ -133,6 +142,8 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime,SDL_Event e) {
 					enemyIndexToDelete = i;
 
 					AudioManager::Instance()->LoadSFX("SFX/KoopaConsume.wav");
+
+					ScoreSystem::Instance()->AddScore(15);
 				}
 
 				else if (luigiCharacter->IsJumping()) {
@@ -171,6 +182,8 @@ bool GameScreenLevel1::SetupLevel() {
 
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
+
+	scoreDisplay = new TextRenderer(12);
 
 	AudioManager::Instance()->LoadMusic("Music/Mario.ogg");
 

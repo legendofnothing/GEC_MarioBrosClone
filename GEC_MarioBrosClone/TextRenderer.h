@@ -14,6 +14,7 @@ public:
 	~TextRenderer();
 
 	void Render(SDL_Renderer* renderer,const char* message,int x,int y);
+	void Render(SDL_Renderer* renderer,int score,int x,int y);
 
 private:
 	TTF_Font*    font;

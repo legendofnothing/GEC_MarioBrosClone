@@ -15,6 +15,8 @@
 #include "PowBlock.h"
 #include "AudioManager.h"
 #include "EnemyKoopa.h"
+#include "TextRenderer.h"
+#include "ScoreSystem.h"
 
 using namespace std;
 
@@ -26,6 +28,7 @@ class LevelMap;
 class PowBlock;
 class AudioManager;
 class EnemyKoopa;
+class TextRenderer;
 
 class GameScreenLevel1 : GameScreen
 {
@@ -59,6 +62,8 @@ private:
 	PowBlock* mPowBlock;
 
 	EnemyKoopa* mKoopa;
+
+	TextRenderer* scoreDisplay;
 
 	bool  mScreenShake;
 	float mScreenShakeTime;

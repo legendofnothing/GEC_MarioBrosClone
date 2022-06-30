@@ -145,6 +145,7 @@
     <ClCompile Include="GameScreenOver.cpp" />
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="PowBlock.cpp" />
+    <ClCompile Include="ScoreSystem.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture2D.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="GameScreenOver.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="PowBlock.h" />
+    <ClInclude Include="ScoreSystem.h" />
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>

@@ -31,3 +31,25 @@ void TextRenderer::Render(SDL_Renderer* renderer,const char* message,int x,int y
 	SDL_FreeSurface(textSurface);
 	textSurface = nullptr;
 }
+
+void TextRenderer::Render(SDL_Renderer* renderer,int score,int x,int y) {
+	char Buffer[256];
+	sprintf_s(Buffer,"%i",score);
+
+	if (text != NULL) {
+		SDL_DestroyTexture(text);
+	}
+
+	textSurface = TTF_RenderText_Solid(font,Buffer,color);
+	text = SDL_CreateTextureFromSurface(renderer,textSurface);
+
+	textRect.x = x;
+	textRect.y = y;
+
+	SDL_QueryTexture(text,NULL,NULL,&textRect.w,&textRect.h);
+	SDL_RenderCopy(renderer,text,NULL,&textRect);
+
+
+	SDL_FreeSurface(textSurface);
+	textSurface = nullptr;
+}
