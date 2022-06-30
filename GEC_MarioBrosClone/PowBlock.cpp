@@ -31,7 +31,7 @@ PowBlock::~PowBlock() {
 void PowBlock::TakeAHit() {
 
 	mNumberOfHitsLeft--;
-	AudioManager::Instance()->LoadSFX("SFX/HitPowBlock.wav");
+	//AudioManager::Instance()->LoadSFX("SFX/HitPowBlock.wav");
 
 	if (mNumberOfHitsLeft <= 0) {
 

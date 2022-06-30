@@ -1,6 +1,6 @@
 #include "AudioManager.h"
 
-AudioManager* AudioManager::mInstance = NULL;
+AudioManager * AudioManager::mInstance = NULL;
 
 AudioManager::AudioManager() {
 }
@@ -28,7 +28,7 @@ void AudioManager::LoadMusic(string path) {
 		cout << "Failed to Load music file. Error: " << Mix_GetError() << "\n";
 	}
 
-	Mix_PlayMusic(mMusic, -1);
+	Mix_PlayMusic(mMusic,-1);
 }
 
 void AudioManager::LoadSFX(string path) {
@@ -38,7 +38,11 @@ void AudioManager::LoadSFX(string path) {
 		cout << "Failed to Load music file. Error: " << Mix_GetError() << "\n";
 	}
 
-	Mix_PlayChannel(-1, mSFX, 0);
+	Mix_PlayChannel(-1,mSFX,0);
+}
+
+void AudioManager::StopMusic() {
+	Mix_HaltMusic();
 }
 
 

@@ -13,6 +13,7 @@ $(ProjectDir)SDL
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 
 #include "Constants.h"
 #include "Commons.h"
@@ -46,7 +47,7 @@ int main(int argc, char* args[])
 	if (InitSDL()) {
 		bool quit = false;
 
-		gameScreenManager = new GameScreenManager(gRenderer, SCREEN_LVL1);
+		gameScreenManager = new GameScreenManager(gRenderer, SCREEN_MENU);
 
 		gOldTime = SDL_GetTicks();
 
@@ -127,6 +128,11 @@ bool InitSDL() {
 		//Create Mixer
 		if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
 			cout << "Mixer could not initialise. Error: " << Mix_GetError();
+			return false;
+		}
+
+		if (TTF_Init() < 0) {
+			cout << "Error: " << TTF_GetError() << endl;
 			return false;
 		}
 	}

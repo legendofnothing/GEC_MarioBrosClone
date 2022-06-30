@@ -83,6 +83,8 @@ void GameScreenLevel1::UpdatePowBlock() {
 void GameScreenLevel1::UpdateScreenShake(float deltaTime) {
 	//Do Screen Shake if true
 	if (mScreenShake) {
+		AudioManager::Instance()->LoadSFX("SFX/HitPowBlock.wav");
+
 		mScreenShakeTime -= deltaTime;
 		mWobble++;
 
@@ -167,7 +169,7 @@ bool GameScreenLevel1::SetupLevel() {
 	mScreenShake = false;
 	mBackgroundYPos = 0.0f;
 
-	AudioManager::Instance()->LoadMusic("Music/Mario.mp3");
+	AudioManager::Instance()->LoadMusic("Music/Mario.ogg");
 
 	return true;
 }
