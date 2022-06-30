@@ -96,8 +96,10 @@ void GameScreenLevel2::Update(float deltaTime,SDL_Event e) {
 		}
 	}
 
-	if (marioCharacter->HasWon()) {
-		cout << "win \n";
+	if (marioCharacter->HasWon() && luigiCharacter->HasWon()) {
+		AudioManager::Instance()->StopMusic();
+
+		SetNextGameState(WIN_STATE);
 	}
 
 	if (LivesSystem::Instance()->GetMarioHP() <= 0 || LivesSystem::Instance()->GetLuigiHP() <= 0) {

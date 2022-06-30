@@ -8,6 +8,7 @@
 #include "GameScreenMenu.h"
 #include "GameScreenOver.h"
 #include "GameScreenLevel2.h"
+#include "GameScreenWin.h"
 
 using namespace std;
 

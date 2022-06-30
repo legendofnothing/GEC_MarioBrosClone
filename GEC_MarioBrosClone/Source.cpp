@@ -108,6 +108,10 @@ bool Update() {
 				gameScreenManager->ChangeScreen(SCREEN_GAMEOVER);
 				break;
 
+			case WIN_STATE:
+				gameScreenManager->ChangeScreen(SCREEN_WIN);
+				break;
+
 			case EXIT_STATE:
 				return true;
 				break;

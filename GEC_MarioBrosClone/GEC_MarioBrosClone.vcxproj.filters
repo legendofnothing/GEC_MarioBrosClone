@@ -66,9 +66,6 @@
     <ClCompile Include="GameScreenMenu.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
-    <ClCompile Include="GameScreenOver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ScoreSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -92,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="Coin.cpp">
       <Filter>Source Files\Things Inherted from Character</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenOver.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreenWin.cpp">
+      <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +146,6 @@
     <ClInclude Include="AudioManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameScreenOver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ScoreSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -157,6 +157,12 @@
     </ClInclude>
     <ClInclude Include="Coin.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenOver.h">
+      <Filter>Header Files\GameScreens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreenWin.h">
+      <Filter>Header Files\GameScreens</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
